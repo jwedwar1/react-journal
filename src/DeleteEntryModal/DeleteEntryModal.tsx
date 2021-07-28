@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Button,
   Dialog,
@@ -6,14 +5,20 @@ import {
   DialogTitle,
   DialogActions,
 } from "@material-ui/core";
-import { DeleteEntryModalInterface } from "../interfaces";
 
-const DeleteEntryModal: React.FC<DeleteEntryModalInterface> = ({
+type DeleteEntryModalProps = {
+  handleClose: () => void;
+  open: boolean;
+  deleteIndex: number;
+  deleteEntry: (deleteIndex: number) => void;
+};
+
+const DeleteEntryModal = ({
   handleClose,
   open,
   deleteIndex,
   deleteEntry,
-}) => {
+}: DeleteEntryModalProps) => {
   const handleDelete = (): void => {
     deleteEntry(deleteIndex);
     handleClose();

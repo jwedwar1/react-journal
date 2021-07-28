@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { Paper, TextareaAutosize } from "@material-ui/core";
 import { Delete, Edit, Save } from "@material-ui/icons";
-import { JournalEntryInterface } from "../interfaces";
+import { JournalEntryProps } from "../types";
 
 import "./JournalEntry.scss";
 
-const JournalEntryContainer: React.FC<JournalEntryInterface> = ({
+const JournalEntryContainer = ({
   bodyText,
   date,
   index,
   setDeleteIndex,
   setShowDeleteModal,
   editEntry,
-}) => {
+}: JournalEntryProps) => {
   const [isEdit, setIsEdit] = useState(false);
   const [entryText, setEntryText] = useState(bodyText);
 

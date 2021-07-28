@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Button,
   Dialog,
@@ -7,16 +7,22 @@ import {
   DialogActions,
   TextField,
 } from "@material-ui/core";
-import { EditTitleDialogInterface } from "../interfaces";
 
 import "./EditTitleModal.scss";
 
-const EditTitleModal: React.FC<EditTitleDialogInterface> = ({
+type EditTitleModalProps = {
+  handleClose: () => void;
+  open: boolean;
+  savedTitle: string;
+  saveTitle: (newTitle: string) => void;
+};
+
+const EditTitleModal = ({
   handleClose,
   open,
   savedTitle,
   saveTitle,
-}) => {
+}: EditTitleModalProps) => {
   const [title, setTitle] = useState(savedTitle);
 
   const handleSave = (): void => {

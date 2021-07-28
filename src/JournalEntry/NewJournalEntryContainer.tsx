@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Paper, TextareaAutosize } from "@material-ui/core";
 import { Delete, Save } from "@material-ui/icons";
-import { NewJournalEntryInterface } from "../interfaces";
 
 import "./JournalEntry.scss";
 
-const NewJournalEntryContainer: React.FC<NewJournalEntryInterface> = ({
+type NewJournalEntryProps = {
+  addEntry: (bodyText: string) => void;
+  setShowNewEntry: (showNewEntry: boolean) => void;
+  setShowDiscardNewEntryModal: (showModal: boolean) => void;
+};
+
+const NewJournalEntryContainer = ({
   addEntry,
   setShowNewEntry,
   setShowDiscardNewEntryModal,
-}) => {
+}: NewJournalEntryProps) => {
   const [entryText, setEntryText] = useState("");
 
   const handleSave = (): void => {

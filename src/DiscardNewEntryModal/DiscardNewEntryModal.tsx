@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Button,
   Dialog,
@@ -6,13 +5,18 @@ import {
   DialogTitle,
   DialogActions,
 } from "@material-ui/core";
-import { DiscardNewEntryModalInterface } from "../interfaces";
 
-const DiscardNewEntryModal: React.FC<DiscardNewEntryModalInterface> = ({
+type DiscardNewEntryModalProps = {
+  handleClose: () => void;
+  open: boolean;
+  setShowNewEntry: (showNewEntry: boolean) => void;
+};
+
+const DiscardNewEntryModal = ({
   handleClose,
   open,
   setShowNewEntry,
-}) => {
+}: DiscardNewEntryModalProps) => {
   const handleDiscard = (): void => {
     setShowNewEntry(false);
     handleClose();
